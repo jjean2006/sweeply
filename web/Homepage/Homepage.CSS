@@ -1,0 +1,101 @@
+/* --- Basic Setup & Font Import --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    /* Using the Roboto font imported in the HTML */
+    font-family: 'Roboto', sans-serif; 
+    color: #333;
+}
+
+/* --- Background Image and Blur Effect --- */
+.background-container {
+    height: 100vh;
+    width: 100vw;
+    /* IMPORTANT: Make sure your image is named 'Untitled.001.jpeg' 
+       and is in the same folder as your HTML file. */
+    background-image: url('Untitled.001.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden; /* Hides parts of the blurred image that go off-screen */
+}
+
+/* This pseudo-element creates a blurred copy of the background 
+   that sits behind the actual content. */
+.background-container::before {
+    content: '';
+    position: absolute;
+    /* Extend slightly to prevent hard edges from the blur */
+    top: -10px;    
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: inherit; /* Copies the background from its parent */
+    filter: blur(4px);   /* This creates the blur effect. Adjust value as needed. */
+    z-index: 1;          /* Sits below the content but above the original background */
+}
+
+/* --- Main Content Layout --- */
+.main-content {
+    position: relative;
+    z-index: 2; /* Ensures content stays sharp and on top of the blurred layer */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Aligns title vertically in the center */
+    align-items: center;     /* Aligns all content horizontally in the center */
+}
+
+/* --- Title Styling --- */
+.title-box {
+    background-color: rgba(28, 28, 28, 0.7); /* Dark semi-transparent background */
+    padding: 12px 28px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Pushes the title up and the nav bar down */
+    margin-bottom: auto; 
+    /* Adjusts vertical position from the top */
+    margin-top: 25vh; 
+}
+
+.title-box h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* --- Navigation Bar Styling --- */
+.bottom-nav {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    padding: 12px 20px;
+    border-radius: 50px; /* Fully rounded corners */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Creates space between the navigation items */
+    position: absolute; /* Positions it relative to the page */
+    bottom: 40px; /* 40px from the bottom of the screen */
+}
+
+.bottom-nav a, .bottom-nav .brand {
+    text-decoration: none;
+    color: #212529; /* A dark grey color for text */
+    font-size: 1rem;
+    padding: 5px 10px;
+    transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+.bottom-nav .brand {
+    font-weight: 700; /* Makes "Sweeply" bold */
+    font-size: 1.2rem;
+}
+
+.bottom-nav a:hover {
+    color: #000000; /* Darkens text on hover */
+}

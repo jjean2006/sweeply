@@ -1,0 +1,113 @@
+/* --- Basic Setup & Font Import --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif; 
+    color: #333;
+}
+
+/* --- Background Image and Blur Effect --- */
+.background-container {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('Untitled.001.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.background-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;    
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: inherit;
+    filter: blur(4px);
+    z-index: 1;
+}
+
+/* --- Main Content Layout --- */
+.main-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Title Styling --- */
+.title-box {
+    background-color: rgba(28, 28, 28, 0.7);
+    padding: 12px 28px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: auto; 
+    margin-top: 25vh; 
+}
+
+.title-box h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* --- Liquid Glass Navigation Bar Styling --- */
+.bottom-nav {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-radius: 50px;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    transition: box-shadow 0.3s;
+}
+
+.bottom-nav a, .bottom-nav .brand {
+    text-decoration: none;
+    color: #212529;
+    font-size: 1rem;
+    padding: 7px 16px;
+    border-radius: 24px;
+    transition: 
+        color 0.3s ease,
+        background 0.3s cubic-bezier(.4,2,.6,1),
+        box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.bottom-nav .brand {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+    color: #222;
+    box-shadow: 0 2px 8px rgba(161,196,253,0.12);
+}
+
+.bottom-nav a:hover, .bottom-nav .brand:hover {
+    color: #0077ff;
+    background: rgba(255,255,255,0.45);
+    box-shadow: 0 4px 16px rgba(0, 119, 255, 0.10);
+    text-shadow: 0 1px 8px rgba(0,119,255,0.08);
+}
