@@ -1,4 +1,5 @@
 import os
+from tkinter import N
 import mariadb
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -35,13 +36,16 @@ def create_cleaning_request():
     data = request.get_json()
     room_number = data.get('room_number')
     cleaning_type = data.get('type') # Details are optional
+    slot = data.get('slot')
 
     if not room_number:
         return jsonify({"status": "error", "message": "Room number is required"}), 400
     if not cleaning_type:
-        return jsonify({"status": "error", "message": "Cleaning type is required"}), 400
-    details = cleaning_type
+        return jsonify({"status": "error", "message": "Cleaning type is required"}), 40
+    if not slot:
+        return jsonify({"status": "error", "message": "Slot is required"}), 400
 
+    
 
     try:
         # --- STEP 1: Save to MariaDB (Our Main Database) ---
@@ -52,7 +56,7 @@ def create_cleaning_request():
         # Make sure your table and column names match here
         cursor.execute(
             "INSERT INTO cleaning_service_requests (room_number, details) VALUES (?, ?)", 
-            (room_number, details)
+            (room_number, cleaning_type)
         )
         conn.commit()
         conn.close()
