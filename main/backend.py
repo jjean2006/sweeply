@@ -1,7 +1,6 @@
 import os
-from tkinter import N
 import mariadb
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from supabase import create_client, Client
 from dotenv import load_dotenv
@@ -66,7 +65,7 @@ def create_cleaning_request():
         print(f"Pinging Supabase for room {room_number}...")
         response = supabase.table('cleaning_requests').insert({
             "room_number": room_number,
-            "details": details
+            "details": cleaning_type
         }).execute()
         print("Successfully pinged Supabase.")
 
