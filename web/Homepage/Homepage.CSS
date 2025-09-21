@@ -1,101 +1,121 @@
-/* --- Basic Setup & Font Import --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body, html {
     height: 100%;
-    /* Using the Roboto font imported in the HTML */
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 300;
     color: #333;
+    overflow: hidden; 
 }
 
-/* --- Background Image and Blur Effect --- */
+/* --- Background Container --- */
 .background-container {
     height: 100vh;
     width: 100vw;
-    /* IMPORTANT: Make sure your image is named 'Untitled.001.jpeg' 
-       and is in the same folder as your HTML file. */
-    background-image: url('Untitled.001.jpeg'); 
+    background-image: url('Homepage.jpeg'); 
     background-size: cover;
     background-position: center;
     position: relative;
-    overflow: hidden; /* Hides parts of the blurred image that go off-screen */
+    overflow: hidden;
+    /* border-radius removed */
 }
 
-/* This pseudo-element creates a blurred copy of the background 
-   that sits behind the actual content. */
 .background-container::before {
     content: '';
     position: absolute;
-    /* Extend slightly to prevent hard edges from the blur */
     top: -10px;    
     left: -10px;
     right: -10px;
     bottom: -10px;
-    background: inherit; /* Copies the background from its parent */
-    filter: blur(4px);   /* This creates the blur effect. Adjust value as needed. */
-    z-index: 1;          /* Sits below the content but above the original background */
+    background: inherit;
+    filter: blur(4px);
+    z-index: 1;
 }
 
 /* --- Main Content Layout --- */
 .main-content {
     position: relative;
-    z-index: 2; /* Ensures content stays sharp and on top of the blurred layer */
+    z-index: 2;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Aligns title vertically in the center */
-    align-items: center;     /* Aligns all content horizontally in the center */
+    justify-content: center;
+    align-items: center;
 }
 
-/* --- Title Styling --- */
-.title-box {
-    background-color: rgba(28, 28, 28, 0.7); /* Dark semi-transparent background */
-    padding: 12px 28px;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* Pushes the title up and the nav bar down */
-    margin-bottom: auto; 
-    /* Adjusts vertical position from the top */
-    margin-top: 25vh; 
-}
-
-.title-box h1 {
+/* --- Title Styling (Box Removed) --- */
+.main-content h1 {
     color: #ffffff;
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 80px;
+    font-weight: normal;
     text-align: center;
+    /* Added shadow for readability against the background */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); 
+    margin-bottom: auto; 
+    margin-top: 25vh; 
+    line-height: 1.05;
+    letter-spacing: 2px;
 }
 
-/* --- Navigation Bar Styling --- */
+/* --- Navigation Bar (Liquid Glass Effect) --- */
+.heading {
+    border-radius: 50px;
+    padding-bottom: 45px;
+    padding-top: 45px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
 .bottom-nav {
-    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    position: absolute;
+    bottom: 40px;
+    border-radius: 50px;
     padding: 12px 20px;
-    border-radius: 50px; /* Fully rounded corners */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.blur {
+    background: rgba(255, 255, 255, 0.15); 
+    /* This backdrop-filter creates the frosted glass blur */
+    backdrop-filter: blur(10px);
+    /* A subtle border to catch the light, enhancing the glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
-    gap: 30px; /* Creates space between the navigation items */
-    position: absolute; /* Positions it relative to the page */
-    bottom: 40px; /* 40px from the bottom of the screen */
+    gap: 30px;
+}
+
+.montserrat-emphasize {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .bottom-nav a, .bottom-nav .brand {
     text-decoration: none;
-    color: #212529; /* A dark grey color for text */
+    /* Changed text color to white for better contrast on the glass */
+    color: #ffffff; 
     font-size: 1rem;
     padding: 5px 10px;
-    transition: color 0.3s ease; /* Smooth color change on hover */
+    transition: color 0.3s ease;
 }
 
 .bottom-nav .brand {
-    font-weight: 700; /* Makes "Sweeply" bold */
+    font-weight: 700;
     font-size: 1.2rem;
 }
 
 .bottom-nav a:hover {
-    color: #000000; /* Darkens text on hover */
+    /* A slightly dimmer white for hover effect */
+    color: #e0e0e0; 
+}
+
+/* Highlight the current page in the nav bar */
+.bottom-nav .current {
+    font-weight: 700;
+    text-decoration: underline;
 }
