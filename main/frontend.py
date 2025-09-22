@@ -36,6 +36,11 @@ def login():
     path = "/common/login.html"
     return render_template(path)
 
+@app.route('/register')
+def register():
+    path = "/common/register.html"
+    return render_template(path)
+
 @app.route('/staff/home')
 def staff_home():
     path = gen_path()

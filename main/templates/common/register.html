@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In - Sweeply</title>
+    <title>Sign Up - Sweeply</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,33 +17,34 @@
     <div class="page-wrapper">
         <div class="container">
             <header>
-                <h1>Welcome Back to Sweeply</h1>
-                <p>Sign in to manage your services</p>
+                <h1>Create Your Sweeply Account</h1>
+                <p>Your cleaning and maintenance solution</p>
             </header>
 
             <main>
                 <div class="form-section">
-                    <h2>Sign In</h2>
+                    <h2>Sign Up</h2>
                     <form>
                         <div class="form-group">
-                            <label for="signin-username">Username</label>
-                            <input type="text" id="signin-username" name="username" placeholder="Enter your username" required>
+                            <label for="signup-name">Full Name</label>
+                            <input type="text" id="signup-name" name="full_name" placeholder="Enter your full name" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="signin-type">User Type</label>
-                            <select id="signin-type" name="user_type" required>
+                            <label for="signup-type">I am a</label>
+                            <select id="signup-type" name="user_type" required>
                                 <option value="" disabled selected>Select your role</option>
                                 <option value="admin">Admin</option>
                                 <option value="staff">Staff</option>
                                 <option value="student">Student</option>
                             </select>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="signin-password">Password</label>
-                            <input type="password" id="signin-password" name="password" placeholder="Enter your password" required>
+                            <label for="signup-password">Password</label>
+                            <input type="password" id="signup-password" name="password" placeholder="Create a password" required>
                         </div>
-                        <button type="submit" class="login-btn">Sign In</button>
+                        <button type="submit" class="login-btn">Create Account</button>
                     </form>
                     
                     <div class="divider">
@@ -52,15 +53,15 @@
                     
                     <div class="third-party-buttons">
                         <button class="third-party-btn google">
-                            Sign in with Google
+                            Sign up with Google
                         </button>
                         <button class="third-party-btn apple">
-                            Sign in with Apple
+                            Sign up with Apple
                         </button>
                     </div>
 
                     <p class="switch-form-link">
-                        Don't have an account? <a href="signup.html">Sign Up</a>
+                        Already have an account? <a href="signin.html">Sign In</a>
                     </p>
                 </div>
             </main>
