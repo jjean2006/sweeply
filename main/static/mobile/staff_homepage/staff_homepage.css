@@ -1,6 +1,6 @@
 :root {
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.8);
+    --text-primary: #111111;
+    --text-secondary: rgba(17, 17, 17, 0.8);
     --bg-primary: rgba(255, 255, 255, 0.15);
     --border-color: rgba(255, 255, 255, 0.2);
     --button-bg: rgba(255, 255, 255, 0.1);
@@ -45,12 +45,12 @@ body {
 .background-container::before {
     content: '';
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: inherit;
-    filter: blur(4px);
+    filter: blur(80px);
     z-index: -1;
 }
 
@@ -81,7 +81,7 @@ header h1 {
 
 .card {
     background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: clamp(15px, 4vw, 20px);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
@@ -115,7 +115,7 @@ header h1 {
 
 .request-item {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: clamp(12px, 3vw, 15px);
     padding: clamp(1rem, 3vw, 1.5rem);
@@ -146,7 +146,7 @@ header h1 {
 
 .time-slot {
     background: rgba(26, 26, 26, 0.8);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(25px);
     color: #ffffff;
     padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.6rem, 2vw, 1rem);
     border-radius: clamp(8px, 2vw, 10px);
@@ -180,7 +180,7 @@ header h1 {
 
 .btn {
     background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: clamp(8px, 2vw, 12px);
     padding: clamp(0.4rem, 2vw, 0.6rem) clamp(0.8rem, 3vw, 1.2rem);
@@ -275,6 +275,11 @@ header h1 {
 /* Hide the old nav in the footer */
 footer nav:not(.bottom-nav) {
     display: none;
+}
+
+/* Reserve space for fixed bottom navigation */
+body {
+    padding-bottom: clamp(120px, 20vh, 180px);
 }
 
 /* Mobile Specific Adjustments */

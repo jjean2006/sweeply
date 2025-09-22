@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweeply Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/desktop/admin_homepage/admin.css"> 
+</head>
+<body>
+    <div class="background-container"></div>
+    
+    <div class="page-wrapper">
+        <div class="container">
+            <header>
+                <h1>Admin Dashboard</h1>
+            </header>
+
+            <main>
+                <div class="main-content-grid">
+                    <div class="left-section">
+                        <div class="card">
+                            <h2>Today's Cleaning Schedule</h2>
+                            
+                            <div class="request-item">
+                                <div class="request-header">
+                                    <span class="room-number">Room 1022</span>
+                                    <span class="time-slot">ASAP</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-tag danger">Emergency spill</span>
+                                    <span class="service-tag">Mopping</span>
+                                    <span class="assignee">Assigned: Priya</span>
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn inprogress">Mark In-Progress</button>
+                                </div>
+                            </div>
+
+                            <div class="request-item">
+                                <div class="request-header">
+                                    <span class="room-number">Room 1025</span>
+                                    <span class="time-slot">11:00 AM</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-tag">Sweeping</span>
+                                    <span class="assignee">Assigned: Arjun</span>
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn inprogress">Mark In-Progress</button>
+                                </div>
+                            </div>
+
+                            <div class="request-item">
+                                <div class="request-header">
+                                    <span class="room-number">Room 1011</span>
+                                    <span class="time-slot">2:00 PM</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-tag">Dusting</span>
+                                    <span class="assignee">Assigned: Riya</span>
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn inprogress">Mark In-Progress</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h2>Repair Requests</h2>
+                            
+                            <div class="request-item">
+                                <div class="request-header">
+                                    <span class="room-number">Room 1020</span>
+                                    <span class="time-slot">ASAP</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-tag">Outlet Repair</span>
+                                    <span class="assignee">Assigned: Vivek</span>
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn accept">Mark In-Progress</button>
+                                    <button class="btn complete">Mark Complete</button>
+                                </div>
+                            </div>
+
+                            <div class="request-item">
+                                <div class="request-header">
+                                    <span class="room-number">Room 1032</span>
+                                    <span class="time-slot">Today</span>
+                                </div>
+                                <div class="service-details">
+                                    <span class="service-tag">Door Repair</span>
+                                    <span class="assignee">Assigned: Meera</span>
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn accept">Mark In-Progress</button>
+                                    <button class="btn complete">Mark Complete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-section">
+                        <div class="card">
+                            <h2>Staff Ratings & Leaderboard</h2>
+                            <div class="leaderboard">
+                                <div class="leaderboard-row first">
+                                    <span class="rank">1</span>
+                                    <span class="name">Priya</span>
+                                    <span class="rating">4.9 ★</span>
+                                </div>
+                                <div class="leaderboard-row">
+                                    <span class="rank">2</span>
+                                    <span class="name">Arjun</span>
+                                    <span class="rating">4.7 ★</span>
+                                </div>
+                                <div class="leaderboard-row">
+                                    <span class="rank">3</span>
+                                    <span class="name">Vivek</span>
+                                    <span class="rating">4.6 ★</span>
+                                </div>
+                                <div class="leaderboard-row">
+                                    <span class="rank">4</span>
+                                    <span class="name">Meera</span>
+                                    <span class="rating">4.4 ★</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h2>Tips Earned Today</h2>
+                            <div class="tips-list">
+                                <div class="tip-row">
+                                    <span class="name">Priya</span>
+                                    <span class="amount">₹ 180</span>
+                                </div>
+                                <div class="tip-row">
+                                    <span class="name">Arjun</span>
+                                    <span class="amount">₹ 120</span>
+                                </div>
+                                <div class="tip-row">
+                                    <span class="name">Vivek</span>
+                                    <span class="amount">₹ 90</span>
+                                </div>
+                                <div class="tip-row">
+                                    <span class="name">Meera</span>
+                                    <span class="amount">₹ 70</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <!-- Liquid Glass Navigation Bar -->
+        <nav class="bottom-nav" aria-label="Main Navigation">
+            <div class="brand">Sweeply</div>
+            <a href="#">Home</a>
+            <a href="#">About us</a>
+            <a href="#">Our Vision</a>
+            <a href="#" class="current">Admin</a>
+        </nav>
+    </div>
+
+    <script>
+        // Simple button feedback
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const original = btn.textContent;
+                btn.textContent = 'Saved';
+                btn.disabled = true;
+                setTimeout(() => {
+                    btn.textContent = original;
+                    btn.disabled = false;
+                }, 1200);
+            });
+        });
+    </script>
+</body>
+</html>
+

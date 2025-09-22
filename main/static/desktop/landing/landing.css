@@ -7,7 +7,7 @@ body, html {
     height: 100%;
     font-family: 'Montserrat', sans-serif; 
     font-weight: 300;
-    color: #333;
+    color: #111111;
     overflow: hidden; 
 }
 
@@ -26,12 +26,12 @@ body, html {
 .background-container::before {
     content: '';
     position: absolute;
-    top: -10px;    
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
+    top: 0;    
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: inherit;
-    filter: blur(4px);
+    filter: blur(80px);
     z-index: 1;
 }
 
@@ -80,7 +80,7 @@ body, html {
 .blur {
     background: rgba(255, 255, 255, 0.15); 
     /* This backdrop-filter creates the frosted glass blur */
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(25px);
     /* A subtle border to catch the light, enhancing the glass effect */
     border: 1px solid rgba(255, 255, 255, 0.2); 
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
@@ -98,7 +98,7 @@ body, html {
 .bottom-nav a, .bottom-nav .brand {
     text-decoration: none;
     /* Changed text color to white for better contrast on the glass */
-    color: #ffffff; 
+    color: #111111; 
     font-size: 1rem;
     padding: 5px 10px;
     transition: color 0.3s ease;
@@ -117,5 +117,15 @@ body, html {
 /* Highlight the current page in the nav bar */
 .bottom-nav .current {
     font-weight: 700;
-    text-decoration: underline;
+    text-decoration: none;
+}
+
+/* Make only Home link turn white on hover */
+.bottom-nav a:first-of-type:hover {
+    color: #ffffff;
+}
+
+/* Reserve space on pages that use a fixed bottom nav elsewhere */
+body {
+    padding-bottom: 120px;
 }
