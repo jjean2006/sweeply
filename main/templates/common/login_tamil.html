@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ஸ்வீப்லி உள்நுழைவு</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/static/common/login.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-container"></div>
+    
+    <div class="page-wrapper">
+        <div class="container">
+            <header>
+                <h1>ஸ்வீப்லிக்கு வரவேற்கிறோம்</h1>
+                <p>உங்கள் சுத்தம் மற்றும் பராமரிப்பு தீர்வு</p>
+            </header>
+
+            <main>
+                <div class="login-grid">
+                    <div class="form-section">
+                        <h2>உள்நுழைய</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="signin-username">பயனர்பெயர்</label>
+                                <input type="text" id="signin-username" placeholder="உங்கள் பயனர்பெயரை உள்ளிடவும்" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signin-password">கடவுச்சொல்</label>
+                                <input type="password" id="signin-password" placeholder="உங்கள் கடவுச்சொல்லை உள்ளிடவும்" required>
+                            </div>
+                            <button type="submit" class="login-btn">உள்நுழைய</button>
+                        </form>
+                        
+                        <div class="divider">
+                            <span>அல்லது இவற்றுடன் தொடரவும்</span>
+                        </div>
+                        
+                        <div class="third-party-buttons">
+                            <button class="third-party-btn google">
+                                <span class="icon">剥</span>
+                                கூகிள் மூலம் உள்நுழையவும்
+                            </button>
+                            <button class="third-party-btn apple">
+                                <span class="icon">克</span>
+                                ஆப்பிள் மூலம் உள்நுழையவும்
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>புதிய கணக்கு</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="signup-name">முழு பெயர்</label>
+                                <input type="text" id="signup-name" placeholder="உங்கள் முழு பெயரை உள்ளிடவும்" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-email">மின்னஞ்சல்</label>
+                                <input type="email" id="signup-email" placeholder="உங்கள் மின்னஞ்சலை உள்ளிடவும்" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-phone">தொலைபேசி எண்</label>
+                                <input type="tel" id="signup-phone" placeholder="உங்கள் தொலைபேசி எண்ணை உள்ளிடவும்" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-password">கடவுச்சொல்</label>
+                                <input type="password" id="signup-password" placeholder="கடவுச்சொல்லை உருவாக்கவும்" required>
+                            </div>
+                            <button type="submit" class="login-btn">கணக்கை உருவாக்கவும்</button>
+                        </form>
+                        
+                        <div class="divider">
+                            <span>அல்லது இவற்றுடன் தொடரவும்</span>
+                        </div>
+                        
+                        <div class="third-party-buttons">
+                            <button class="third-party-btn google">
+                                <span class="icon">剥</span>
+                                கூகிள் மூலம் பதிவு செய்யவும்
+                            </button>
+                            <button class="third-party-btn apple">
+                                <span class="icon">克</span>
+                                ஆப்பிள் மூலம் பதிவு செய்யவும்
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <footer>
+            <nav>
+                <div class="logo">Sweeply</div>
+                <a href="#">முகப்பு</a>
+                <a href="#">எங்களைப் பற்றி</a>
+                <a href="#">எங்கள் பார்வை</a>
+                <a href="#" class="current">உள்நுழைவு</a>
+            </nav>
+        </footer>
+
+        <nav class="bottom-nav" aria-label="Main Navigation">
+            <div class="brand">Sweeply</div>
+            <a href="#">முகப்பு</a>
+            <a href="#">எங்களைப் பற்றி</a>
+            <a href="#">எங்கள் பார்வை</a>
+            <a href="#" class="current">உள்நுழைவு</a>
+        </nav>
+    </div>
+
+    <script>
+        // The original JavaScript will work without any changes.
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', (e) => { e.preventDefault(); });
+        });
+    </script>
+
+</body>
+</html>
