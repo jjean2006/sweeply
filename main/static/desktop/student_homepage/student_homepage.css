@@ -1,6 +1,6 @@
 :root {
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.8);
+    --text-primary: #111111;
+    --text-secondary: rgba(17, 17, 17, 0.8);
     --bg-primary: rgba(255, 255, 255, 0.15);
     --border-color: rgba(255, 255, 255, 0.2);
     --button-bg: rgba(255, 255, 255, 0.1);
@@ -45,12 +45,12 @@ body {
 .background-container::before {
     content: '';
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: inherit;
-    filter: blur(4px);
+    filter: blur(80px);
     z-index: -1;
 }
 
@@ -80,7 +80,7 @@ header h1 {
 
 .card {
     background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
@@ -120,7 +120,7 @@ header h1 {
 
 .option-btn {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     padding: 0.6rem 1.2rem;
@@ -142,7 +142,7 @@ header h1 {
 
 .option-btn.active {
     background: rgba(26, 26, 26, 0.8);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(25px);
     color: #ffffff;
     border-color: rgba(255, 255, 255, 0.3);
     font-weight: 600;
@@ -177,7 +177,7 @@ header h1 {
     width: 20px;
     height: 20px;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     display: grid;
@@ -263,6 +263,17 @@ footer {
 /* Hide the old nav in the footer */
 footer nav:not(.bottom-nav) {
     display: none;
+}
+
+/* Reserve space for fixed bottom navigation */
+body {
+    padding-bottom: 140px;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-bottom: 180px;
+    }
 }
 
 /* History Card Styles */

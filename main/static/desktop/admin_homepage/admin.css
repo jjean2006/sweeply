@@ -1,27 +1,13 @@
-:root {
-    --text-primary: #111111;
-    --text-secondary: rgba(17, 17, 17, 0.8);
-    --bg-primary: rgba(255, 255, 255, 0.15);
-    --border-color: rgba(255, 255, 255, 0.2);
-    --button-bg: rgba(255, 255, 255, 0.1);
-    --button-hover-bg: rgba(255, 255, 255, 0.2);
-    --button-active-bg: rgba(26, 26, 26, 0.8);
-    --button-active-text: #ffffff;
-    --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body, html {
     height: 100%;
     font-family: 'Inter', sans-serif;
-    color: var(--text-primary);
+    color: #111111;
 }
-
 body {
     margin: 0;
     padding: 0;
@@ -73,9 +59,21 @@ body {
 header h1 {
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: var(--text-primary);
+    color: #111111;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.main-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.left-section, .right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .card {
@@ -87,37 +85,11 @@ header h1 {
     padding: 2rem;
 }
 
-.main-content-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    justify-items: center;
-}
-
-.single-column {
-    width: 100%;
-    max-width: 900px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.left-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.right-section {
-    display: flex;
-    flex-direction: column;
-}
-
 .card h2 {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1.25rem;
-    color: var(--text-primary);
+    color: #111111;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -131,11 +103,6 @@ header h1 {
     transition: all 0.3s ease;
 }
 
-.request-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.2);
-}
-
 .request-header {
     display: flex;
     justify-content: space-between;
@@ -144,37 +111,49 @@ header h1 {
 }
 
 .room-number {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #111111;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .time-slot {
-    background: #ffffff;
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(25px);
     color: #111111;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 10px;
     font-weight: 600;
     font-size: 0.9rem;
-    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .service-details {
-    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .service-tag {
     display: inline-block;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
-    padding: 0.4rem 0.8rem;
-    margin: 0.2rem;
+    padding: 0.35rem 0.75rem;
     font-size: 0.85rem;
-    color: var(--text-primary);
+    color: #111111;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.service-tag.danger {
+    background: rgba(255, 0, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.assignee {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .action-buttons {
@@ -192,7 +171,7 @@ header h1 {
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--text-primary);
+    color: #ffffff;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
@@ -205,38 +184,55 @@ header h1 {
     box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.3);
 }
 
-.btn.accept {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--text-primary);
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
 }
 
-.btn.accept:hover {
-    background: rgba(255, 255, 255, 0.25);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+.leaderboard-row {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 0.6rem 0.8rem;
 }
 
-.btn.complete {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--text-primary);
+.leaderboard-row.first {
+    background: rgba(255, 215, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.35);
 }
 
-.btn.complete:hover {
-    background: rgba(255, 255, 255, 0.25);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+.leaderboard-row .rank {
+    font-weight: 700;
 }
 
+.leaderboard-row .rating {
+    font-weight: 600;
+}
 
+.tips-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.tip-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 0.6rem 0.8rem;
+}
 
 /* Liquid Glass Navigation Bar */
 .bottom-nav {
     background: rgba(255, 255, 255, 0.15); 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2); 
     padding: 12px 20px;
     border-radius: 50px;
@@ -254,7 +250,7 @@ header h1 {
 
 .bottom-nav a, .bottom-nav .brand {
     text-decoration: none;
-    color: #ffffff;
+    color: #111111;
     font-size: 1rem;
     padding: 5px 10px;
     transition: color 0.3s ease;
@@ -271,20 +267,19 @@ header h1 {
 
 .bottom-nav .current {
     font-weight: 700;
+    text-decoration: none;
 }
 
-/* Hide the old nav in the footer */
-footer nav:not(.bottom-nav) {
-    display: none;
-}
+.bottom-nav a:first-of-type:hover { color: #ffffff; }
 
 /* Reserve space for fixed bottom navigation */
-body {
-    padding-bottom: 140px;
-}
+body { padding-bottom: 140px; }
+@media (max-width: 480px) { body { padding-bottom: 180px; } }
 
-@media (max-width: 480px) {
-    body {
-        padding-bottom: 180px;
+/* Responsive */
+@media (max-width: 992px) {
+    .main-content-grid {
+        grid-template-columns: 1fr;
     }
 }
+

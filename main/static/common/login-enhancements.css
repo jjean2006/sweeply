@@ -1,6 +1,6 @@
 :root {
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.8);
+    --text-primary: #111111;
+    --text-secondary: rgba(17, 17, 17, 0.8);
     --bg-primary: rgba(255, 255, 255, 0.15);
     --border-color: rgba(255, 255, 255, 0.2);
     --button-bg: rgba(255, 255, 255, 0.1);
@@ -45,12 +45,12 @@ body {
 .background-container::before {
     content: '';
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: inherit;
-    filter: blur(4px);
+    filter: blur(80px);
     z-index: -1;
 }
 
@@ -99,7 +99,7 @@ header p {
 
 .form-section {
     background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: clamp(15px, 4vw, 20px);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
@@ -131,7 +131,7 @@ header p {
 .form-group input {
     width: 100%;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: clamp(8px, 2vw, 12px);
     padding: clamp(0.75rem, 2.5vw, 1rem);
@@ -156,14 +156,14 @@ header p {
 .login-btn {
     width: 100%;
     background: rgba(26, 26, 26, 0.8);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: clamp(8px, 2vw, 12px);
     padding: clamp(0.75rem, 2.5vw, 1rem);
     font-family: 'Inter', sans-serif;
     font-size: clamp(0.9rem, 2.5vw, 1rem);
     font-weight: 600;
-    color: #ffffff;
+    color: #111111;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
@@ -206,7 +206,7 @@ header p {
 .third-party-btn {
     width: 100%;
     background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: clamp(8px, 2vw, 12px);
     padding: clamp(0.75rem, 2.5vw, 1rem);
@@ -232,7 +232,7 @@ header p {
 
 .third-party-btn.google {
     background: rgba(255, 255, 255, 0.9);
-    color: #333;
+    color: #111111;
     border-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -243,7 +243,7 @@ header p {
 
 .third-party-btn.apple {
     background: rgba(0, 0, 0, 0.8);
-    color: #ffffff;
+    color: #111111;
     border-color: rgba(255, 255, 255, 0.3);
 }
 
@@ -259,7 +259,7 @@ header p {
 /* Liquid Glass Navigation Bar */
 .bottom-nav {
     background: rgba(255, 255, 255, 0.15); 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2); 
     padding: clamp(8px, 3vw, 12px) clamp(12px, 4vw, 20px);
     border-radius: 50px;
@@ -278,9 +278,14 @@ header p {
     justify-content: center;
 }
 
+/* Ensure content never sits under the fixed bottom nav */
+body {
+    padding-bottom: clamp(96px, 16vh, 140px);
+}
+
 .bottom-nav a, .bottom-nav .brand {
     text-decoration: none;
-    color: #ffffff;
+    color: #111111;
     font-size: clamp(0.8rem, 2.5vw, 1rem);
     padding: clamp(3px, 1vw, 5px) clamp(6px, 2vw, 10px);
     transition: color 0.3s ease;
@@ -298,7 +303,11 @@ header p {
 
 .bottom-nav .current {
     font-weight: 700;
+    text-decoration: none;
 }
+
+/* Make only Home link turn white on hover */
+.bottom-nav a:first-of-type:hover { color: #ffffff; }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
@@ -327,6 +336,10 @@ header p {
         padding: clamp(8px, 3vw, 12px) clamp(16px, 5vw, 20px);
         border-radius: 25px;
     }
+    
+    body {
+        padding-bottom: clamp(120px, 20vh, 180px);
+    }
 }
 
 /* Landscape Mobile Adjustments */
@@ -343,4 +356,36 @@ header p {
         bottom: clamp(10px, 3vh, 20px);
         padding: clamp(4px, 1vw, 8px) clamp(12px, 3vw, 16px);
     }
+}
+
+/* Narrower glass card while preserving design language */
+.form-section {
+    max-width: clamp(320px, 90vw, 420px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Logo span inside third-party buttons */
+.third-party-btn .logo {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* Keep text wrapping nicely next to logo */
+.third-party-btn .label {
+    line-height: 1;
+}
+
+/* Google multicolor G */
+.third-party-btn.google .google-logo {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%234285F4' d='M24 9.5c3.54 0 6.72 1.22 9.22 3.6l6.9-6.9C35.9 1.6 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l8.04 6.24C12.63 13.52 17.86 9.5 24 9.5z'/%3E%3Cpath fill='%2334A853' d='M46.5 24c0-1.6-.16-3.13-.46-4.6H24v9.06h12.7c-.55 2.98-2.22 5.5-4.72 7.2l7.22 5.6C43.78 37.64 46.5 31.4 46.5 24z'/%3E%3Cpath fill='%23FBBC05' d='M10.6 19.46l-8.04-6.24C1 16.58 0 20.16 0 24c0 3.84 1 7.42 2.56 10.78l8.04-6.24c-.52-1.56-.8-3.22-.8-4.78s.28-3.22.8-4.78z'/%3E%3Cpath fill='%23EA4335' d='M24 48c6.48 0 11.94-2.14 15.92-5.74l-7.22-5.6c-2 1.35-4.56 2.14-8.7 2.14-6.14 0-11.37-4.02-13.4-9.72l-8.04 6.24C6.51 42.62 14.62 48 24 48z'/%3E%3Cpath fill='none' d='M0 0h48v48H0z'/%3E%3C/svg%3E");
+}
+
+/* Apple logo */
+.third-party-btn.apple .apple-logo {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FFFFFF' d='M16.365 2.43c0 1.02-.42 1.992-1.152 2.772-.726.774-1.908 1.362-2.91 1.284-.132-1.008.45-2.046 1.14-2.808.72-.792 1.98-1.356 2.922-1.248zm3.06 16.86c-.558 1.29-1.23 2.562-2.214 2.58-.966.018-1.278-.84-2.37-.84-1.092 0-1.44.816-2.352.858-1.002.036-1.764-1.206-2.328-2.484-1.266-2.856-2.232-8.07-.93-10.38.642-1.152 1.782-1.89 3.06-1.908 1.2-.024 2.34.816 2.958.816.606 0 1.8-.996 3.042-.852.522.024 1.992.21 2.934 1.584-.078.048-1.758 1.026-1.74 3.06.024 2.442 2.154 3.264 2.178 3.276-.024.096-.342 1.188-1.238 2.1z'/%3E%3C/svg%3E");
 }

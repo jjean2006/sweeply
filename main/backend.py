@@ -85,13 +85,15 @@ def create_cleaning_request():
 @app.route('/register', methods=['POST'])
 def register_user():
     """Registers a new user."""
-    data = request.get_json()
+    data = request.get_json(silent=True) or request.form.to_dict()
     username = data.get('username')
     password = data.get('password')
-    user_type = data.get('type')
+    table = data.get('user_type').capitalize()
+    print(data)
+
 
     # --- 1. Validate Input ---
-    if not username or not password or not user_type:
+    if not username or not password or not table:
         return jsonify({"status": "error", "message": "Username, password, and type are required"}), 400
     
     # --- 2. Hash the Password (NEVER STORE PLAIN TEXT) ---
@@ -102,17 +104,19 @@ def register_user():
         conn = mariadb.connect(**db_config)
         cursor = conn.cursor()
 
+        cmd = f"SELECT Username FROM {table} WHERE username = '{username}'"
         # Check if username already exists
-        cursor.execute("SELECT username FROM users WHERE username = ?", (username,))
+        cursor.execute(cmd)
         if cursor.fetchone():
             conn.close()
             return jsonify({"status": "error", "message": "Username already exists"}), 409 # 409 Conflict
 
+
+        print(username)
+        print(password_hash)
         # Insert the new user
-        cursor.execute(
-            "INSERT INTO users (username, password_hash, user_type) VALUES (?, ?, ?)",
-            (username, password_hash, user_type)
-        )
+        cmd = f"INSERT INTO {table} (Username, Password_hash) VALUES ('{username}', '{password_hash}')"
+        cursor.execute(cmd)
         conn.commit()
         conn.close()
 
@@ -132,13 +136,16 @@ def register_user():
 @app.route('/login', methods=['POST'])
 def login_user():
     """Authenticates a user."""
-    data = request.get_json()
+    data = request.get_json(silent=True) or request.form.to_dict()
     username = data.get('username')
     password = data.get('password')
-    
+    table = data.get('user_type').capitalize()
+
+
     # --- 1. Validate Input ---
-    if not username or not password:
-        return jsonify({"status": "error", "message": "Username and password are required"}), 400
+    if not username or not password or not table:
+        return jsonify({"status": "error", "message": "Username,password and table are required"}), 400
+
 
     try:
         # --- 2. Fetch User from Database ---
@@ -146,12 +153,15 @@ def login_user():
         # We use a dictionary cursor to get column names
         cursor = conn.cursor(dictionary=True)
 
-        cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+        cmd = f"SELECT * FROM {table} WHERE Username = '{username}'"
+        cursor.execute(cmd)
         user = cursor.fetchone()
+        print(user)
         conn.close()
 
+        print("Checking pw")
         # --- 3. Verify User and Password Hash ---
-        if user and check_password_hash(user['password_hash'], password):
+        if user and check_password_hash(user[f'Password_hash'], password):
             # Password is correct!
             print(f"User '{username}' logged in successfully.")
             # Pro-tip: In a real app, you would generate a JWT token here and return it.
@@ -159,8 +169,7 @@ def login_user():
                 "status": "success", 
                 "message": "Login successful",
                 "user": {
-                    "username": user['username'],
-                    "type": user['user_type']
+                    "username": user['Username'],
                 }
             }), 200
         else:
@@ -179,4 +188,4 @@ def login_user():
 # --- RUN THE SERVER ---
 if __name__ == '__main__':
     # We run on port 5000. The website will run on a different one.
-    app.run(port=5000, debug=True)
+    app.run(port=8000, debug=True)
